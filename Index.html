@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heat and Mass Transfer Data Book Locator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; color: #333; }
+        .container {
+            background: #fff;
+            max-width: 900px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 25px; /* Reverted to original margin for h2 */
+            font-size: 1.8em;
+        }
+        .created-by {
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 30px; /* Added top margin for separation from main content */
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], select, button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #333;
+        }
+        input[type="text"]:focus, select:focus, button:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #218838;
+            transform: translateY(-1px);
+        }
+        .output {
+            margin-top: 25px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background-color: #fcfcfc;
+            line-height: 1.6;
+            color: #444;
+        }
+        .output h3 {
+            margin-top: 0;
+            color: #007bff;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .output p, .output ul {
+            margin-bottom: 10px;
+        }
+        .output ul {
+            list-style-type: disc;
+            margin-left: 25px;
+            padding-left: 0;
+        }
+        .output ul li {
+            margin-bottom: 5px;
+        }
+        .output strong {
+            color: #000;
+        }
+        .info-box {
+            background-color: #eaf6ff;
+            border: 1px solid #cce5ff;
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Heat and Mass Transfer Data Book Locator</h2>
+        
+        <div class="info-box">
+            This tool helps you locate specific concepts, formulas, and tables within the "Heat and Mass Transfer Data Book (Eighth Edition)" by C.P. Kothandaraman and S. Subramanyan. New Age International Publishers (The provided data is not acurate,it varies as pre edition of the Book ,cross check manually with hard copy)
+        </div>
+
+        <label for="searchBar">Search Concepts:</label>
+        <input type="text" id="searchBar" placeholder="Type to filter concepts...">
+
+        <label for="searchConcept">Select a Concept, Chapter, or Term:</label>
+        <select id="searchConcept">
+            <option value="">-- Select a Topic/Term --</option>
+            <optgroup label="PROPERTY VALUES">
+                <option value="pv_metals_alloys">Metals & Alloys</option>
+                <option value="pv_non_metallic_solids">Non Metallic Solids</option>
+                <option value="pv_common_materials">Common Materials</option>
+                <option value="pv_insulating_building_materials">Insulating, Building and Other Materials</option>
+                <option value="pv_liquids">Liquids</option>
+                <option value="pv_liquid_metals">Liquid Metals</option>
+                <option value="pv_gases_vapours">Gases & Vapours</option>
+            </optgroup>
+            <optgroup label="CONDUCTION">
+                <option value="cond_steady_state">Steady State Conduction</option>
+                <option value="cond_steady_state_heat_gen_fins">Steady State with Heat Generation & Fins</option>
+                <option value="cond_transient_lumped">Transient: Lumped Parameter System</option>
+                <option value="cond_transient_semi_infinite">Transient: Semi Infinite Solid</option>
+                <option value="cond_transient_infinite">Transient: Infinite Solids</option>
+                <option value="cond_periodic_heat_flow">Periodic Heat Flow</option>
+                <option value="cond_freezing_melting">Freezing and Melting</option>
+            </optgroup>
+            <optgroup label="RADIATION">
+                <option value="rad_basic_concepts">Basic Radiation Concepts</option>
+                <option value="rad_heat_transfer_surfaces">Heat Transfer between Surfaces</option>
+                <option value="rad_gas_radiation">Gas Radiation</option>
+            </optgroup>
+            <optgroup label="CONVECTION">
+                <option value="conv_forced_external">Forced Convection: External Flow</option>
+                <option value="conv_forced_internal">Forced Convection: Internal Flow</option>
+                <option value="conv_forced_packed_beds">Forced Convection: Packed Beds</option>
+                <option value="conv_free_convection">Free Convection</option>
+                <option value="conv_boiling">Boiling</option>
+                <option value="conv_condensation">Condensation</option>
+            </optgroup>
+            <optgroup label="HEAT EXCHANGER">
+                <option value="he_general">General Heat Exchanger Concepts</option>
+                <option value="he_regenerative_storage">Regenerative Type & Storage Type</option>
+                <option value="he_transverse_fin">Transverse Fin Heat Exchangers</option>
+            </optgroup>
+            <optgroup label="MASS TRANSFER">
+                <option value="mt_diffusion_coefficient">Basic Equation for Diffusion Coefficient</option>
+                <option value="mt_diffusion_mass_transfer">Diffusion Mass Transfer</option>
+                <option value="mt_convective_mass_transfer">Convective Mass Transfer</option>
+                <option value="mt_humidification">Humidification</option>
+                <option value="mt_diffusion_coefficients_schmidt_henry">Diffusion Coefficients, Schmidt number and Henry's Constant</option>
+            </optgroup>
+            <optgroup label="APPENDIX">
+                <option value="app_heat_pipe_fluids">Heat Pipe Fluids Properties</option>
+                <option value="app_r12_r22_r134a_r717_r744_r32">Thermal Conductivity & Viscosity of Refrigerants</option>
+                <option value="app_water_steam_properties">Transport Properties of Water and Steam</option>
+                <option value="app_prandtl_number_steam_water">Prandtl Number of Steam and Water</option>
+                <option value="app_unit_conversion">Unit Conversion Constants</option>
+                <option value="app_psychrometric_charts">Psychrometric Charts</option>
+            </optgroup>
+        </select>
+        <button id="locateInfoButton">Locate Information in Handbook</button>
+        <div class="output" id="locatorOutput">
+            Select a concept or term from the dropdown to find its location and details in the "Heat and Mass Transfer Data Book."
+        </div>
+    </div>
+
+    <p class="created-by">Created by: Siddesh B<br>Department of Mechanical Engineering<br>University BDT College of Engineering, Davanagere.</p>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const searchConceptSelector = document.getElementById("searchConcept");
+            const locateInfoButton = document.getElementById("locateInfoButton");
+            const locatorOutput = document.getElementById("locatorOutput");
+            const searchBar = document.getElementById("searchBar");
+
+            // Store original options for filtering
+            const originalOptions = Array.from(searchConceptSelector.options).map(option => ({
+                value: option.value,
+                text: option.textContent,
+                optgroupLabel: option.parentElement.tagName === 'OPTGROUP' ? option.parentElement.label : null
+            }));
+
+            // Handbook Data Mapping (Extracted from HMT Data Book (1).pdf)
+            const handbookMap = {
+                "pv_metals_alloys": {
+                    title: "PROPERTY VALUES: Metals & Alloys",
+                    description: "Density, Thermal Diffusivity, Specific Heat, and Thermal Conductivity of various metals and alloys at 20°C.",
+                    references: [
+                        { type: "Table", name: "PROPERTY VALUES OF METALS AT 20°C OR AS INDICATED", page: "5-7" },
+                        { type: "Table", name: "VARIATION OF THERMAL CONDUCTIVITY OF METALS WITH TEMPERATURE (W/mK)", page: "9-10" }
+                    ]
+                },
+                "pv_non_metallic_solids": {
+                    title: "PROPERTY VALUES: Non Metallic Solids",
+                    description: "Thermal Conductivity, Density, and Specific Heat of various non-metallic solids.",
+                    references: [
+                        { type: "Table", name: "PROPERTY VALUES OF SOME NON METALLIC SOLIDS", page: "15-16" }
+                    ]
+                },
+                "pv_common_materials": {
+                    title: "PROPERTY VALUES: Common Materials",
+                    description: "Thermal Conductivity, Density, and Specific Heat of common materials like asphalt, brick, concrete, glass, wood, etc.",
+                    references: [
+                        { type: "Table", name: "THERMAL CONDUCTIVITY OF SOME COMMON MATERIALS", page: "14" },
+                        { type: "Table", name: "PROPERTY VALUES OF COMMON MATERIALS", page: "17-18" }
+                    ]
+                },
+                "pv_insulating_building_materials": {
+                    title: "PROPERTY VALUES: Insulating, Building and Other Materials",
+                    description: "Density, Thermal Conductivity, and Specific Heat of various insulating and building materials.",
+                    references: [
+                        { type: "Table", name: "PROPERTY VALUES OF INSULATING MATERIALS AND SYSTEMS AT 27°C", page: "19" },
+                        { type: "Table", name: "PROPERTY VALUES OF INDUSTRIAL INSULATING MATERIALS", page: "20-22" },
+                        { type: "Table", name: "PROPERTY VALUES OF INSULATING, BUILDING AND OTHER MATERIALS", page: "23-24" },
+                        { type: "Figure", name: "VARIATION OF THERMAL CONDUCTIVELY OF DIFFERENT , AND REFRACTORY MATERIALS WITH TEMPERATURE", page: "25" }
+                    ]
+                },
+                "pv_liquids": {
+                    title: "PROPERTY VALUES: Liquids",
+                    description: "Density, Kinematic Viscosity, Thermal Diffusivity, Prandtl Number, Specific Heat, and Thermal Conductivity of various liquids in saturated state, including water, ammonia, carbon dioxide, glycerine, etc.",
+                    references: [
+                        { type: "Table", name: "PROPERTY VALUES OF LIQUIDS IN SATURATED STATE", page: "26-29" },
+                        { type: "Figure", name: "VARIATION OF THERMAL CONDUCTIVITY OF LIQUIDS WITH TEMPERATURE", page: "31" },
+                        { type: "Table", name: "COEFFICIENT OF CUBICAL EXPANSION, β AT 20°C", page: "34" }
+                    ]
+                },
+                "pv_liquid_metals": {
+                    title: "PROPERTY VALUES: Liquid Metals",
+                    description: "Density, Kinematic Viscosity, Thermal Diffusivity, Prandtl Number, Specific Heat, and Thermal Conductivity of various liquid metals like Mercury, Tin, Bismuth, Lithium, Potassium, Sodium, and Alloys.",
+                    references: [
+                        { type: "Table", name: "PHYSICAL PROPERTIES OF LIQUID METALS", page: "36-37" }
+                    ]
+                },
+                "pv_gases_vapours": {
+                    title: "PROPERTY VALUES: Gases & Vapours",
+                    description: "Density, Absolute Viscosity, Kinematic Viscosity, Thermal Diffusivity, Prandtl Number, Specific Heat, and Thermal Conductivity of various gases at one atmospheric pressure, including air, nitrogen, oxygen, carbon monoxide, carbon dioxide, etc.",
+                    references: [
+                        { type: "Table", name: "PROPERTY VALUES OF GASES AT ONE ATMOSPHERIC PRESSURE", page: "38-43" },
+                        { type: "Table", name: "PROPERTY VALUES OF SATURATED STEAM", page: "44" },
+                        { type: "Figure", name: "VARIATION OF THERMAL CONDUCTIVITY OF GASES WITH TEMPERATURE", page: "46" },
+                        { type: "Figure", name: "VARIATION OF ABSOLUTE VISCOSITY OF GASES", page: "47" }
+                    ]
+                },
+                "cond_steady_state": {
+                    title: "CONDUCTION: Steady State",
+                    description: "Formulas for one-dimensional steady state heat transfer through plane walls, hollow cylinders, hollow spheres, and composite layers, including thermal resistance and temperature distribution.",
+                    references: [
+                        { type: "Topic", name: "ONE DIMENSIONAL STEADY STATE HEAT TRANSFER", page: "48" },
+                        { type: "Topic", name: "ONE DIMENSIONAL STEADY STATE HEAT CONDUCTION (Contd.)", page: "49-51" }
+                    ]
+                },
+                "cond_steady_state_heat_gen_fins": {
+                    title: "CONDUCTION: Steady State with Heat Generation & Fins",
+                    description: "Formulas for steady state conduction with internal heat generation in slabs and cylinders, and heat transfer through fins (extended surfaces) including fin efficiency.",
+                    references: [
+                        { type: "Topic", name: "STEADY STATE CONDUCTION WITH HEAT GENERATION", page: "52-53" },
+                        { type: "Topic", name: "FINS OR EXTENDED SURFACES", page: "54" },
+                        { type: "Figure", name: "CIRCUMFERENTIAL, RECTANGULAR, TRIANGULAR FINS", page: "55" },
+                        { type: "Figure", name: "PLATE FINS AND DISC FINS", page: "56" }
+                    ]
+                },
+                "cond_transient_lumped": {
+                    title: "CONDUCTION: Transient - Lumped Parameter System",
+                    description: "Analysis of transient conduction for bodies with high thermal conductivity suddenly exposed to a convective atmosphere, including time constant, instantaneous and total heat flow.",
+                    references: [
+                        { type: "Topic", name: "TRANSIENT CONDUCTION: Lumped Parameter System", page: "62" }
+                    ]
+                },
+                "cond_transient_semi_infinite": {
+                    title: "CONDUCTION: Transient - Semi Infinite Solid",
+                    description: "Temperature distribution and heat flux for semi-infinite solids with sudden surface temperature changes or exposure to convective conditions, using error function.",
+                    references: [
+                        { type: "Topic", name: "TRANSIENT CONDUCTION: Semi Infinite Solid", page: "63" },
+                        { type: "Table", name: "VALUES OF ERROR FUNCTION OF Z", page: "64" },
+                        { type: "Figure", name: "Temperature Distribution in the Semi Infinite Solid with Convection Boundary Condition.", page: "65" },
+                        { type: "Figure", name: "SEMI INFINITE SOLID: TEMPERATURE-TIME HISTORY (LOCATION, x, TEMPERATURE KNOWN, TO FIND TIME)", page: "66" },
+                        { type: "Figure", name: "SEMI INFINITE SOLID: TEMPERATURE-TIME HISTORY (TEMPERATURE, TIME KNOWN, TO FIND LOCATION, x)", page: "67" }
+                    ]
+                },
+                "cond_transient_infinite": {
+                    title: "CONDUCTION: Transient - Infinite Solids",
+                    description: "Temperature-time history and heat flow for infinite plates, long cylinders, and spheres, including dimensionless parameters (Biot and Fourier numbers) and charts.",
+                    references: [
+                        { type: "Topic", name: "TRANSIENT CONDUCTION: Infinite Solids", page: "68" },
+                        { type: "Figure", name: "INFINITE PLATE: TEMPERATURE-TIME HISTORY AT ANY POSITION", page: "69" },
+                        { type: "Figure", name: "HEAT FLOW: INFINITE PLATE", page: "70" },
+                        { type: "Figure", name: "LONG CYLINDER: TEMPERATURE-TIME HISTORY AT CENTRELINE", page: "71" },
+                        { type: "Figure", name: "LONG CYLINDER: TEMPERATURE-TIME HISTORY AT ANY RADIUS, r", page: "72" },
+                        { type: "Figure", name: "HEAT FLOW: LONG CYLINDER", page: "73" },
+                        { type: "Figure", name: "SPHERE: TEMPERATURE-TIME HISTORY AT CENTRE", page: "74" },
+                        { type: "Figure", name: "SPHERE: TEMPERATURE-TIME HISTORY AT ANY RADIUS, r", page: "75" },
+                        { type: "Figure", name: "HEAT FLOW: SPHERE", page: "76" },
+                        { type: "Topic", name: "PRODUCT SOLUTIONS FOR TEMPERATURES IN MULTIDIMENSIONAL SYSTEMS", page: "77" }
+                    ]
+                },
+                "cond_periodic_heat_flow": {
+                    title: "CONDUCTION: Periodic Heat Flow",
+                    description: "Analysis of heat flow in solids exposed to fluids with periodic temperature variation, including temperature amplitude ratio and angle of lag.",
+                    references: [
+                        { type: "Topic", name: "PERIODIC HEAT FLOW", page: "78" }
+                    ]
+                },
+                "cond_freezing_melting": {
+                    title: "CONDUCTION: Freezing and Melting",
+                    description: "Analysis of freezing and melting processes at liquid/solid surfaces, including dimensionless parameters and charts for freezing inside/outside tubes.",
+                    references: [
+                        { type: "Topic", name: "FREEZING/MELTING", page: "79" },
+                        { type: "Figure", name: "FREEZING: INSIDE TUBE", page: "80" },
+                        { type: "Figure", name: "FREEZING: OUTSIDE TUBE", page: "81" }
+                    ]
+                },
+                "rad_basic_concepts": {
+                    title: "RADIATION: Basic Concepts",
+                    description: "Fundamental laws and properties of thermal radiation including wavelength, reflectivity, absorptivity, transmissivity, emissivity, Wien's Law, Stefan-Boltzmann Law, and Planck's Law for black bodies.",
+                    references: [
+                        { type: "Topic", name: "RADIATION", page: "82" },
+                        { type: "Table", name: "RATIO OF BLACK BODY RADIANT ENERGY UPTO THE WAVE TO TOTAL EMISSIVE POWER OF BLACK BODY AT THE SAMP TEMPERATURE BLACK BODY RADIATION FUNCTION", page: "83" },
+                        { type: "Table", name: "EMISSIVITY εn OF RADIATION IN THE NORMAL DIRECTION TO THE SURFACE AND εh OF THE TOTAL HEMISPHERICAL EMISSIVITY FOR VARIOUS SURFACES", page: "85-86" },
+                        { type: "Table", name: "EMISSIVITY ALONG NORMAL DIRECTION en AND TOTAL HEMISPHERICAL EMISSIVITY eh FOR VARIOUS NON METALLIC SURFACES", page: "87-88" },
+                        { type: "Table", name: "SOLAR RADIATIVE PROPERTIES FOR SELECTED MATERIALS", page: "89" },
+                        { type: "Figure", name: "VARIATION OF TOTAL REFLECTIVITY AND ABSORPTIVITY FOR INCRE BLACK RADIATION WITH TEMPERATURE", page: "90" }
+                    ]
+                },
+                "rad_heat_transfer_surfaces": {
+                    title: "RADIATION: Heat Transfer between Surfaces",
+                    description: "General equations for net radiant heat exchange between surfaces, including shape factors for various geometries (parallel squares/rectangles/discs, adjacent rectangles, non-intersecting perpendicular squares, coaxial discs, slots, tubes).",
+                    references: [
+                        { type: "Topic", name: "RADIANT HEAT EXCHANGE BETWEEN SURFACES", page: "84" },
+                        { type: "Figure", name: "SHAPE FACTORS FOR EQUAL AND PARALLEL SQUARES, RECTANGLES AND DISCS", page: "91" },
+                        { type: "Figure", name: "SHAPE FACTOR FOR EQUAL PARALLEL RECTANGLES IN OPPOSITE LOCATION", page: "92" },
+                        { type: "Table", name: "SHAPE FACTORS F3-2 EQUAL PARALLEL RECTANGLES IN OPPOSITE LOCATION", page: "93" },
+                        { type: "Figure", name: "SHAPE FACTORS F1-2 RECTANGLES", page: "94" },
+                        { type: "Table", name: "SHAPE FACTORS F1-2-PERPENDICULAR RECTANGLES", page: "95" },
+                        { type: "Figure", name: "SHAPE FACTOR-NON INTERSECTING PERPENDICULAR EQUAL SQUARES", page: "96" },
+                        { type: "Figure", name: "SHAPE FACTOR-OFFSET NON INTERSECTING PERPENDICULAR SQUARES", page: "97" },
+                        { type: "Figure", name: "SHAPE FACTOR-COAXIAL DISCS OF DIFFERENT BAR", page: "98" },
+                        { type: "Figure", name: "SHAPE FACTOR FOR SLOTS AND OPENINGS IN WALL OF THICKNESS, L", page: "99" },
+                        { type: "Figure", name: "SHAPE FACTOR FOR A SURFACE ELEMENT JA TO A RECTANGULAR SURFACE PARALLEL TO IT AT CORNER", page: "100" },
+                        { type: "Figure", name: "Shape Factor for a system of a differential surface dA1 and a finite rectangular surface perpendicular to it", page: "101" },
+                        { type: "Figure", name: "SHAPE FACTOR COMPARED TO PARALLEL PLANES, FOR A PLANE AND ONE OR TWO ROWS OF TUBES PARALLEL TO IT", page: "102" },
+                        { type: "Figure", name: "SHAPE FACTOR FOR RADIATION TO BANKS OF TUBES IN VARIOUS ARRANGEMENTS", page: "103" },
+                        { type: "Figure", name: "SHAPE FACTOR-SHORT CONCENTRIC CYLINDERS", page: "104" }
+                    ]
+                },
+                "rad_gas_radiation": {
+                    title: "RADIATION: Gas Radiation",
+                    description: "Conditions and emissivity charts for carbon dioxide and water vapour in mixtures, including correction factors for mixture pressure.",
+                    references: [
+                        { type: "Topic", name: "GAS RADIATION", page: "105" },
+                        { type: "Figure", name: "EMISSIVITY OF CARBON DIOXIDE IN A MIXTURE AT 1 atm", page: "106" },
+                        { type: "Figure", name: "CORRECTION FACTOR FOR CO2 WHEN MIXTURE PRESSURE IS OTHER THAN 1 atm", page: "107" },
+                        { type: "Figure", name: "EMISSIVITY OF WATER VAPOUR IN A MIXTURE AT 1 atm", page: "108" },
+                        { type: "Figure", name: "CORRECTION FACTOR FOR H2O WHEN MIXTURE PRESSURE IS OTHER THAN 1 atm", page: "109" },
+                        { type: "Figure", name: "CORRECTION FACTOR FOR EMISSIVITY WHEN BOTH CO2 AND H2O ARE PRESENT IN THE MIXTURE", page: "110" },
+                        { type: "Table", name: "EQUIVALENT THICKNESS, L FOR NON-LUMINOUS GAS RADIATION LAYERS OF DIFFERENT SHAPES", page: "111" }
+                    ]
+                },
+                "conv_forced_external": {
+                    title: "CONVECTION: Forced Convection - External Flow",
+                    description: "Correlations and validity conditions for forced convection over flat plates (laminar, turbulent), cylinders, and spheres, including Nusselt number, Reynolds number, and Prandtl number.",
+                    references: [
+                        { type: "Topic", name: "EXTERNAL FLOW", page: "113-115" },
+                        { type: "Topic", name: "FLOW OVER CYLINDERS", page: "116-118" },
+                        { type: "Topic", name: "FLOW OVER SPHERES", page: "120" },
+                        { type: "Topic", name: "FLOW ACROSS TUBE BANKS", page: "121-123" },
+                        { type: "Table", name: "DIMENSIONLESS GROUPS", page: "112" } // General dimensionless groups table
+                    ]
+                },
+                "conv_forced_internal": {
+                    title: "CONVECTION: Forced Convection - Internal Flow",
+                    description: "Correlations and validity conditions for forced convection in tubes (laminar, turbulent) and non-circular sections, including friction factors and Nusselt number correlations.",
+                    references: [
+                        { type: "Topic", name: "INTERNAL FLOW", page: "124-128" }
+                    ]
+                },
+                "conv_forced_packed_beds": {
+                    title: "CONVECTION: Forced Convection - Packed Beds",
+                    description: "Correlations for heat transfer in packed beds.",
+                    references: [
+                        { type: "Topic", name: "Packed Beds", page: "133" }
+                    ]
+                },
+                "conv_free_convection": {
+                    title: "CONVECTION: Free Convection",
+                    description: "Correlations for free convection over various geometries (vertical plates, horizontal plates, cylinders, spheres) and in enclosed spaces, including Grashof number and Rayleigh number.",
+                    references: [
+                        { type: "Topic", name: "Free Convection", page: "135-147" }
+                    ]
+                },
+                "conv_boiling": {
+                    title: "CONVECTION: Boiling",
+                    description: "Boiling regimes, correlations for nucleate boiling, film boiling, and critical heat flux.",
+                    references: [
+                        { type: "Topic", name: "Boiling", page: "148" },
+                        { type: "Formula/Correlation", name: "Nucleate Boiling Correlation (Rohsenow for water)", page: "148" },
+                        { type: "Formula/Correlation", name: "Film Boiling Correlation", page: "148" },
+                        { type: "Formula/Correlation", name: "Critical Heat Flux Correlation", page: "148" }
+                    ]
+                },
+                "conv_condensation": {
+                    title: "CONVECTION: Condensation",
+                    description: "Correlations for film condensation on vertical plates, horizontal tubes, and tube banks, including Nusselt's theory.",
+                    references: [
+                        { type: "Topic", name: "Condensation", page: "149-151" }
+                    ]
+                },
+                "he_general": {
+                    title: "HEAT EXCHANGER: General Concepts",
+                    description: "Overall Heat Transfer Coefficient, Log Mean Temperature Difference (LMTD), Effectiveness-NTU method, and Fouling Factors for heat exchangers.",
+                    references: [
+                        { type: "Topic", name: "HEAT EXCHANGER", page: "152-168" }
+                    ]
+                },
+                "he_regenerative_storage": {
+                    title: "HEAT EXCHANGER: Regenerative Type & Storage Type",
+                    description: "Specific details and analysis for regenerative and storage type heat exchangers.",
+                    references: [
+                        { type: "Topic", name: "Regenerative Type", page: "169" },
+                        { type: "Topic", name: "Storage Type", page: "171" }
+                    ]
+                },
+                "he_transverse_fin": {
+                    title: "HEAT EXCHANGER: Transverse Fin Heat Exchangers",
+                    description: "Analysis of heat exchangers with transverse fins.",
+                    references: [
+                        { type: "Topic", name: "Transverse Fin", page: "174" }
+                    ]
+                },
+                "mt_diffusion_coefficient": {
+                    title: "MASS TRANSFER: Basic Equation for Diffusion Coefficient",
+                    description: "Fundamental equations for diffusion coefficients.",
+                    references: [
+                        { type: "Topic", name: "Basic Equation for Diffusion Coefficient", page: "174" }
+                    ]
+                },
+                "mt_diffusion_mass_transfer": {
+                    title: "MASS TRANSFER: Diffusion Mass Transfer",
+                    description: "Analysis of diffusion mass transfer.",
+                    references: [
+                        { type: "Topic", name: "Diffusion Mass Transfer", page: "175" }
+                    ]
+                },
+                "mt_convective_mass_transfer": {
+                    title: "MASS TRANSFER: Convective Mass Transfer",
+                    description: "Analysis of convective mass transfer.",
+                    references: [
+                        { type: "Topic", name: "Convective Mass Transfer", page: "176" }
+                    ]
+                },
+                "mt_humidification": {
+                    title: "MASS TRANSFER: Humidification",
+                    description: "Concepts and calculations related to humidification processes.",
+                    references: [
+                        { type: "Topic", name: "Humidification", page: "178" }
+                    ]
+                },
+                "mt_diffusion_coefficients_schmidt_henry": {
+                    title: "MASS TRANSFER: Diffusion Coefficients, Schmidt number and Henry's Constant",
+                    description: "Tables for diffusion coefficients, Schmidt number, and Henry's Constant.",
+                    references: [
+                        { type: "Topic", name: "Diffusion Coefficients, Schmidt number and Henry's Constant", page: "180" }
+                    ]
+                },
+                "app_heat_pipe_fluids": {
+                    title: "APPENDIX: Heat Pipe Fluids Properties",
+                    description: "Properties of various heat pipe fluids like Lithium, Potassium, Sodium, Mercury, Caesium, Flutec PP9, Heptane, Acetone, Methanol, Ammonia, Nitrogen, Helium, Ethanol, Water, and Pentane.",
+                    references: [
+                        { type: "Table", name: "Table 1: HP1 Properties of Heat Pipe Fluids - Lithium, Potassium, Sodium and Mercury", page: "187" },
+                        { type: "Table", name: "Table 2: HP2 Properties of Heat Pipe Fluids - Caesium, Flutec PP9, High Temperature Organic (Diphenyl - Diphenyl Oxideutectic) and Flutec PP2.", page: "188" },
+                        { type: "Table", name: "Table 3: HP3 Properties of Heat Pipe Fluids - Heptane, Acetone, Methanol and Ammonia", page: "189" },
+                        { type: "Table", name: "Table 4: HP4 Properties of Heat Pipe Fluids - Nitrogen, Helium, Ethanol, Water and Pentane", page: "190" }
+                    ]
+                },
+                "app_r12_r22_r134a_r717_r744_r32": {
+                    title: "APPENDIX: Thermal Conductivity & Viscosity of Refrigerants",
+                    description: "Variation of Thermal Conductivity and Viscosity of R12, R22, R134a, R717 (Ammonia), R744 (Carbon Dioxide), and R32.",
+                    references: [
+                        { type: "Table", name: "Table 5: Variation of Thermal Conductivity and Viscosity of R12, Dichlorodifluoromethane and R22, Chlorodifluoromethane", page: "191" },
+                        { type: "Table", name: "Table 6: Variation of Thermal Conductivity and Viscosity of R134a, Tetrafluoroethane and R717, Ammonia", page: "192" },
+                        { type: "Table", name: "Table 7: Variation of Thermal Conductivity and Viscosity of R744, Carbon Dioxide and R32, Difluoromethane", page: "193" }
+                    ]
+                },
+                "app_water_steam_properties": {
+                    title: "APPENDIX: Transport Properties of Water and Steam",
+                    description: "Transport properties of water and steam at saturation conditions, and thermal conductivity/dynamic viscosity at various pressures and temperatures.",
+                    references: [
+                        { type: "Table", name: "Table 8: Transport Properties of Water and Steam at Saturation Conditions", page: "194" },
+                        { type: "Table", name: "Table 9: Thermal Conductivity, k, of Steam and Water at Various Pressures and Temperatures.", page: "194" },
+                        { type: "Table", name: "Table 10: Dynamic Viscosity of Steam and Water at Various Pressures and Temperatures.", page: "195" }
+                    ]
+                },
+                "app_prandtl_number_steam_water": {
+                    title: "APPENDIX: Prandtl Number of Steam and Water",
+                    description: "Prandtl Number of Steam and Water at Various Pressures and Temperatures.",
+                    references: [
+                        { type: "Table", name: "Table 11: Prandtl Number of Steam and Water at Various Pressures and Temperatures", page: "196" },
+                        { type: "Table", name: "Table 12: Prandtl Number of Steam and Water at Various Pressures and Temperatures (Contd.)", page: "197" }
+                    ]
+                },
+                "app_unit_conversion": {
+                    title: "APPENDIX: Unit Conversion Constants",
+                    description: "Constants for converting between different units.",
+                    references: [
+                        { type: "Topic", name: "UNIT CONVERSION CONSTANTS", page: "198" }
+                    ]
+                },
+                "app_psychrometric_charts": {
+                    title: "APPENDIX: Psychrometric Charts",
+                    description: "Psychrometric charts for air-water vapor mixtures.",
+                    references: [
+                        { type: "Topic", name: "PSYCHROMETRIC CHARTS", page: "199-200" }
+                    ]
+                }
+            };
+
+            // Event listener for the search bar
+            searchBar.addEventListener("input", () => {
+                const searchText = searchBar.value.toLowerCase();
+                
+                // Clear current options
+                searchConceptSelector.innerHTML = '<option value="">-- Select a Topic/Term --</option>';
+
+                const filteredGroups = new Map(); // Map to store optgroups and their matching options
+
+                originalOptions.forEach(optionData => {
+                    // Always re-add the "-- Select a Topic/Term --" option at the start
+                    if (optionData.value === "") return; 
+
+                    if (optionData.text.toLowerCase().includes(searchText)) {
+                        if (optionData.optgroupLabel) {
+                            if (!filteredGroups.has(optionData.optgroupLabel)) {
+                                filteredGroups.set(optionData.optgroupLabel, []);
+                            }
+                            filteredGroups.get(optionData.optgroupLabel).push(optionData);
+                        } else {
+                            // For options not in an optgroup (like the initial placeholder)
+                            const option = document.createElement('option');
+                            option.value = optionData.value;
+                            option.textContent = optionData.text;
+                            searchConceptSelector.appendChild(option);
+                        }
+                    }
+                });
+
+                // Reconstruct the dropdown with filtered options and their original optgroups
+                // This preserves the order of optgroups from the original HTML structure
+                // Create a temporary array to hold the optgroups in their original order
+                const orderedOptgroups = [];
+                originalOptions.filter(opt => opt.optgroupLabel)
+                               .map(opt => opt.optgroupLabel)
+                               .filter((value, index, self) => self.indexOf(value) === index) // Get unique optgroup labels in order
+                               .forEach(label => {
+                                   if (filteredGroups.has(label)) {
+                                       const newOptgroup = document.createElement('optgroup');
+                                       newOptgroup.label = label;
+                                       filteredGroups.get(label).forEach(optionData => {
+                                           const option = document.createElement('option');
+                                           option.value = optionData.value;
+                                           option.textContent = optionData.text;
+                                           newOptgroup.appendChild(option);
+                                       });
+                                       searchConceptSelector.appendChild(newOptgroup);
+                                   }
+                               });
+
+                // If no search text, or no matches, reset to all original options
+                if (searchText === "" || searchConceptSelector.options.length <= 1) {
+                    searchConceptSelector.innerHTML = '<option value="">-- Select a Topic/Term --</option>';
+                    originalOptions.filter(opt => opt.optgroupLabel).map(opt => opt.optgroupLabel)
+                        .filter((value, index, self) => self.indexOf(value) === index)
+                        .forEach(label => {
+                            const optgroup = document.createElement('optgroup');
+                            optgroup.label = label;
+                            originalOptions.filter(opt => opt.optgroupLabel === label).forEach(optionData => {
+                                const option = document.createElement('option');
+                                option.value = optionData.value;
+                                option.textContent = optionData.text;
+                                optgroup.appendChild(option);
+                            });
+                            searchConceptSelector.appendChild(optgroup);
+                        });
+                }
+            });
+
+            locateInfoButton.addEventListener("click", () => {
+                const selectedConcept = searchConceptSelector.value;
+                if (!selectedConcept) {
+                    locatorOutput.innerHTML = '<p style="color: #d9534f; font-weight: bold;">Please select a concept or term from the dropdown.</p>';
+                    return;
+                }
+
+                const conceptData = handbookMap[selectedConcept];
+                if (!conceptData) {
+                    locatorOutput.innerHTML = `<p style="color: #d9534f; font-weight: bold;">Information not available for "${searchConceptSelector.options[searchConceptSelector.selectedIndex].text}".</p>`;
+                    return;
+                }
+
+                let htmlOutput = `<h3>${conceptData.title}</h3>`;
+                htmlOutput += `<p><strong>Description:</strong> ${conceptData.description}</p>`;
+                htmlOutput += `<h4>Handbook References:</h4><ul>`;
+
+                conceptData.references.forEach(ref => {
+                    let refDetail = '';
+                    if (ref.type === "Chapter" || ref.type === "Topic") {
+                        refDetail = `<strong>${ref.type}:</strong> ${ref.name || ref.description} Pages: ${ref.page || ref.pages}`;
+                    } else if (ref.type === "Table") {
+                        refDetail = `<strong>Table:</strong> ${ref.name} page no ${ref.page}`;
+                    } else if (ref.type === "Equation") {
+                        refDetail = `<strong>Equation:</strong> ${ref.number} page no ${ref.page}`;
+                    } else if (ref.type === "Figure") {
+                        refDetail = `<strong>Figure:</strong> ${ref.name} page no ${ref.page}`;
+                    } else if (ref.type === "Formula/Correlation") { // New type for unnumbered formulas/correlations
+                        refDetail = `<strong>Formula/Correlation:</strong> ${ref.name} page no ${ref.page}`;
+                    } else if (ref.type === "Note") {
+                        refDetail = `<strong>Note:</strong> ${ref.description}`;
+                    }
+                    htmlOutput += `<li>${refDetail}</li>`;
+                });
+                htmlOutput += `</ul>`;
+                locatorOutput.innerHTML = htmlOutput;
+            });
+        });
+    </script>
+</body>
+</html>
